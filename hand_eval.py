@@ -78,6 +78,9 @@ if __name__ == "__main__":
     Test methods
     """
     hand = [('J', 'spades'), ('2', 'spades'), ('J', 'diamonds'), ('2', 'diamonds'), ('6', 'spades')]
+    hand2 = [('A', 'spades'), ('2', 'spades'), ('3', 'spades'), ('4', 'spades'), ('5', 'spades')]
+    print(hand)
     validate_hand(hand)
-    # print(number_hand(hand))
-    has_flush(hand)
+    print(number_hand(hand))    # two pair
+    print(has_flush(hand))      # False
+    print(has_flush(hand2))     # True
