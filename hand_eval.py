@@ -55,7 +55,10 @@ def has_flush(hand):
     for card in hand:
         suit = card[1]
         suit_count[suit] += 1
-    print(dict(suit_count))
+    for count in suit_count.values():
+        if count >= 5:
+            return True
+    return False
 
 
 def has_straight(hand):
