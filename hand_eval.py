@@ -22,12 +22,10 @@ def number_hand(hand):
     for card in hand:
         number = card[0]
         number_count[number] += 1
-    print(dict(number_count))
     
     hasTriple = False
     hasPair = False
-    for key in number_count:
-        count = number_count[key]
+    for count in number_count.values():
         if count == 4:
             return "four-of-a-kind"
         if count == 3:
