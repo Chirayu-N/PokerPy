@@ -140,7 +140,12 @@ def winner(hand1, hand2):
     else:
         return 0 # TODO differentiate hands / handle ties
     
-
+def handle_same_hand(hand1, hand2, hand_type):
+    """
+    Takes in two hands and the type of hand to determine which hand
+    is better. Return the better hand or 0 if both hands are equal
+    """
+    pass
 
 if __name__ == "__main__":
     """
