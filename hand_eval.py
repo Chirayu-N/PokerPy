@@ -175,3 +175,14 @@ if __name__ == "__main__":
         print(random_hand)
         print(bestHand)
         n += 1
+    
+    # random hands winners
+    r1 = cards.draw_card(deck, 5)
+    print(r1)
+    print(best_hand(r1))
+    r2 = cards.draw_card(deck, 5)
+    print(r2)
+    print(best_hand(r2))
+    winner = winner(r1, r2)
+    if winner != 0:
+        print(f"Winner: {winner}")
