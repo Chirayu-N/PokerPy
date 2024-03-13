@@ -116,7 +116,7 @@ def has_straight(hand):
 
 def winner(hand1, hand2):
     """
-    Output the winner given two hands
+    Output the winner given two hands. Return 0 if tied.
     """
     bestHand1 = best_hand(hand1)
     bestHand2 = best_hand(hand2)
@@ -138,14 +138,14 @@ def winner(hand1, hand2):
     elif handRanking[bestHand1] < handRanking[bestHand2]:
         return hand2
     else:
-        return 0 # TODO differentiate hands / handle ties
+        return handle_same_hand(hand1, hand2)
     
 def handle_same_hand(hand1, hand2, hand_type):
     """
     Takes in two hands and the type of hand to determine which hand
     is better. Return the better hand or 0 if both hands are equal
     """
-    pass
+    return 0
 
 if __name__ == "__main__":
     """
