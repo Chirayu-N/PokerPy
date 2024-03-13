@@ -138,6 +138,19 @@ if __name__ == "__main__":
 
     deck = cards.create_deck()
     print(best_hand(deck))      # straight flush
+    
+    # random hand evaluation
     random_hand = cards.draw_card(deck, 5)
     print(random_hand)
     print(best_hand(random_hand))
+
+    # generate "interesting" hands
+    n = 0
+    while n < 5:
+        random_hand = cards.draw_card(deck, 5)
+        bestHand = best_hand(random_hand)
+        if bestHand in ["high card", "pair", "two pair"]:
+            continue
+        print(random_hand)
+        print(bestHand)
+        n += 1
