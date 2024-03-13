@@ -118,7 +118,28 @@ def winner(hand1, hand2):
     """
     Output the winner given two hands
     """
-    pass
+    bestHand1 = best_hand(hand1)
+    bestHand2 = best_hand(hand2)
+
+    handRanking = {
+        "straight flush" : 1, 
+        "four-of-a-kind" : 2,
+        "full house" : 3,
+        "flush" : 4,
+        "straight" : 5,
+        "triple" : 6,
+        "two pair" : 7,
+        "pair" : 8,
+        "high card" : 9
+    }
+
+    if handRanking[bestHand1] > handRanking[bestHand2]:
+        return hand1
+    elif handRanking[bestHand1] < handRanking[bestHand2]:
+        return hand2
+    else:
+        return 0 # TODO differentiate hands / handle ties
+    
 
 
 if __name__ == "__main__":
