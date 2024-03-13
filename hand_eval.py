@@ -63,7 +63,39 @@ def has_straight(hand):
     """
     Outputs if a hand has a straight
     """
+    # Cannot make straight automatically
+    if len(hand) < 5:
+        return False
     
+    nums = set()
+    for card in hand:
+        val = card[0]
+        number = int()
+        if val == "J":
+            nums.add(11)
+        elif val == "Q":
+            nums.add(12)
+        elif val == "K":
+            nums.add(13)
+        elif val == "A":
+            nums.add(1)
+            nums.add(14)
+        else:
+            number = int(val)
+            nums.add(number)
+        
+    sortedNums = sorted(list(nums))
+    N = len(sortedNums)
+    for i in range(N):
+        # cannot make a straight with remaining cards
+        if (i + 5 > N):
+            return False
+        # brute force: check if numbers are consecutive
+        for j in range(4):
+            if sortedNums[i + j] + 1 != sortedNums[i + j + 1]:
+                return False
+
+        return True
 
 
 def winner(hand1, hand2):
@@ -78,9 +110,10 @@ if __name__ == "__main__":
     Test methods
     """
     hand = [('J', 'spades'), ('2', 'spades'), ('J', 'diamonds'), ('2', 'diamonds'), ('6', 'spades')]
-    hand2 = [('A', 'spades'), ('2', 'spades'), ('3', 'spades'), ('4', 'spades'), ('5', 'spades')]
+    hand2 = [('6', 'spades'), ('2', 'spades'), ('3', 'spades'), ('4', 'spades'), ('5', 'spades')]
     print(hand)
     validate_hand(hand)
     print(number_hand(hand))    # two pair
     print(has_flush(hand))      # False
     print(has_flush(hand2))     # True
+    print(has_straight(hand2))  # True
