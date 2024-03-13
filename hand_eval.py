@@ -1,4 +1,5 @@
 from collections import defaultdict 
+
 def validate_hand(hand):
     """
     Raise exception if there are duplicate cards in a hand
@@ -110,10 +111,12 @@ if __name__ == "__main__":
     Test methods
     """
     hand = [('J', 'spades'), ('2', 'spades'), ('J', 'diamonds'), ('2', 'diamonds'), ('6', 'spades')]
-    hand2 = [('6', 'spades'), ('2', 'spades'), ('3', 'spades'), ('4', 'spades'), ('5', 'spades')]
-    print(hand)
+    hand2 = [('A', 'spades'), ('2', 'spades'), ('3', 'spades'), ('4', 'spades'), ('5', 'spades')]
+    
     validate_hand(hand)
     print(number_hand(hand))    # two pair
     print(has_flush(hand))      # False
+    
+    validate_hand(hand2)
     print(has_flush(hand2))     # True
     print(has_straight(hand2))  # True
