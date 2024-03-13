@@ -11,7 +11,20 @@ def best_hand(hand):
     """
     Output the best 5-card poker hand from a list of cards in a hand
     """
-    pass
+    hasFlush = has_flush(hand)
+    hasStraight = has_straight(hand)
+    numberHand = number_hand(hand)
+
+    if hasStraight and hasFlush:
+        return "straight flush"
+    elif numberHand in ["four-of-a-kind", "full house"]:
+        return numberHand
+    elif hasFlush:
+        return "flush"
+    elif hasStraight:
+        return "straight"
+    else:
+        return numberHand
 
 
 def number_hand(hand):
