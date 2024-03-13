@@ -1,4 +1,5 @@
 from collections import defaultdict 
+import cards
 
 def validate_hand(hand):
     """
@@ -6,6 +7,7 @@ def validate_hand(hand):
     """
     if len(hand) != len(set(hand)):
         raise Exception("Hand contains duplicate cards")
+
 
 def best_hand(hand):
     """
@@ -47,9 +49,9 @@ def number_hand(hand):
             if hasPair:
                 return "full house"
         if count == 2:
-            hasPair = True
             if hasPair:
                 return "two pair"
+            hasPair = True
     
     if hasTriple:
         return "triple"
@@ -133,3 +135,9 @@ if __name__ == "__main__":
     validate_hand(hand2)
     print(has_flush(hand2))     # True
     print(has_straight(hand2))  # True
+
+    deck = cards.create_deck()
+    print(best_hand(deck))      # straight flush
+    random_hand = cards.draw_card(deck, 5)
+    print(random_hand)
+    print(best_hand(random_hand))
